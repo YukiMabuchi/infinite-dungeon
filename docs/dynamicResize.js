@@ -4,21 +4,21 @@ function initialize() {
     canvas = document.querySelector("#unity-canvas");
 }
 
-document.addEventListener('DOMContentLoaded', function(event){
+document.addEventListener('DOMContentLoaded', function (event) {
     initialize();
     resize();
 });
 
 function resize() {
-    var width = 1080;
-    var height = 1920;
+    var width = { WIDTH };
+    var height = { HEIGHT };
     canvasAspectRatio = width / height;
 
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 
     var aspectWindowHeight = windowWidth / canvasAspectRatio;
-    if(aspectWindowHeight > windowHeight) {
+    if (aspectWindowHeight > windowHeight) {
         windowWidth = windowHeight * canvasAspectRatio;
     }
     else {
@@ -29,7 +29,7 @@ function resize() {
 }
 
 let resizeTimer;
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     // 動的なリサイズは操作後0.2秒経ってから処理を実行する
     clearTimeout(resizeTimer)
     resizeTimer = setTimeout(function () {
